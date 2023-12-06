@@ -6,7 +6,7 @@ import models
 import cmd
 
 
-class BaseModel:
+class BaseModel(cmd.Cmd):
     def __init__(self, *args, **kwargs):
         """Instatntiation of base model class"""
         if kwargs:
