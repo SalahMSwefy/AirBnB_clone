@@ -100,21 +100,21 @@ class HBNBCommand(cmd.Cmd):
         Usage: update <class name> <id> <attribute name> \"<attribute value>\"
         """
         args = shlex.split(line)
-        obj_dict = models.storage.all()
+        objAll = models.storage.all()
         if len(args) < 1:
             print("** class name missing **")
-        elif args[0] not in models.classes_dict:
+        elif args[0] not in models.classes:
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
-        elif "{}.{}".format(args[0], args[1]) not in obj_dict:
+        elif "{}.{}".format(args[0], args[1]) not in objAll:
             print("** no instance found **")
         elif len(args) < 3:
             print("** attribute name missing **")
         elif len(args) < 4:
             print("** value missing **")
         else:
-            obj = obj_dict["{}.{}".format(args[0], args[1])]
+            obj = objAll["{}.{}".format(args[0], args[1])]
             attribute_type = type(getattr(obj, args[2], ''))
             setattr(obj, args[2], attribute_type(args[3]))
             obj.save()
