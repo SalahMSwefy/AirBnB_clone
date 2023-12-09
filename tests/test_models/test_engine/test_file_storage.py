@@ -38,7 +38,9 @@ class testFileStorage(unittest.TestCase):
         self.assertTrue(isinstance(inst._FileStorage__file_path, str))
         self.assertEqual(inst._FileStorage__file_path, "file.json")
         self.assertTrue(os.path.exists("file.json"))
-        
+        os.remove("file.json")
+        self.assertFalse(os.path.exists("file.json"))
+
     def test_all(self):
         """all test"""
         inst = FileStorage()
@@ -49,13 +51,17 @@ class testFileStorage(unittest.TestCase):
         inst._FileStorage__objects = {"BaseModel.123": "test"}
         self.assertEqual(inst.all(), {"BaseModel.123": "test"})
         self.assertTrue(isinstance(inst.all(), dict))
-        self.assertTrue(isinstance(inst._FileStorage__objects, dict))
+        self.assertTrue(isinstance(inst.
+                                   _FileStorage__objects, dict))
         self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test"})
-        inst._FileStorage__objects = {"BaseModel.123": "test", "BaseModel.456": "test2"}
-        self.assertEqual(inst.all(), {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        inst._FileStorage__objects = {"BaseModel.123": "test",
+                                      "BaseModel.456": "test2"}
+        self.assertEqual(inst.all(), {"BaseModel.123": "test",
+                                      "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
-        self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst._FileStorage__objects,
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
 
     def test_new(self):
         """new test"""
@@ -66,10 +72,12 @@ class testFileStorage(unittest.TestCase):
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
         self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test"})
         inst.new("BaseModel.456", "test2")
-        self.assertEqual(inst.all(), {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst.all(), {"BaseModel.123":
+                                      "test", "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
-        self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst._FileStorage__objects,
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
         inst.new("BaseModel.123", "test3")
 
     def test_save(self):
@@ -88,12 +96,14 @@ class testFileStorage(unittest.TestCase):
         inst.save()
         self.assertTrue(os.path.exists("file.json"))
         with open("file.json", "r") as f:
-            self.assertEqual(json.load(f), {"BaseModel.123": "test", "BaseModel.456": "test2"})
+            self.assertEqual(json.load(f), {"BaseModel.123": "test",
+                                            "BaseModel.456": "test2"})
         inst.new("BaseModel.123", "test3")
         inst.save()
         self.assertTrue(os.path.exists("file.json"))
         with open("file.json", "r") as f:
-            self.assertEqual(json.load(f), {"BaseModel.123": "test3", "BaseModel.456": "test2"})
+            self.assertEqual(json.load(f), {"BaseModel.123": "test3",
+                                            "BaseModel.456": "test2"})
         inst.new("BaseModel.123", "test")
         inst.save()
         self.assertTrue(os.path.exists("file.json"))
@@ -117,31 +127,34 @@ class testFileStorage(unittest.TestCase):
         inst.new("BaseModel.456", "test2")
         inst.save()
         inst.reload()
-        self.assertEqual(inst.all(), {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst.all(),
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
-        self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst._FileStorage__objects,
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
         inst.new("BaseModel.123", "test3")
         inst.save()
         inst.reload()
-        self.assertEqual(inst.all(), {"BaseModel.123": "test3", "BaseModel.456": "test2"})
+        self.assertEqual(inst.all(),
+                         {"BaseModel.123": "test3", "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
-        self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test3", "BaseModel.456": "test2"})
+        self.assertEqual(inst._FileStorage__objects,
+                         {"BaseModel.123": "test3", "BaseModel.456": "test2"})
         inst.new("BaseModel.123", "test")
         inst.save()
         inst.reload()
-        self.assertEqual(inst.all(), {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst.all(),
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
-        self.assertEqual(inst._FileStorage__objects, {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst._FileStorage__objects,
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
         inst.new("BaseModel.123", "test")
         inst.save()
         inst.reload()
-        self.assertEqual(inst.all(), {"BaseModel.123": "test", "BaseModel.456": "test2"})
+        self.assertEqual(inst.all(),
+                         {"BaseModel.123": "test", "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
-        
-                        
-
-        

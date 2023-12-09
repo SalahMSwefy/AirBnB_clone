@@ -24,4 +24,13 @@ class testAmenity(unittest.TestCase):
         inst.name = "test"
         self.assertEqual(inst.name, "test")
         self.assertTrue(isinstance(inst.name, str))
-        
+        self.assertTrue(inst.name, "")
+        self.assertTrue(inst.id, "")
+        self.assertTrue(inst.created_at, "")
+        self.assertTrue(inst.updated_at, "")
+        self.assertTrue(inst.__class__.__name__, "Amenity")
+        self.assertTrue(type(inst.created_at), 'datetime.datetime')
+        self.assertTrue(type(inst.updated_at), 'datetime.datetime')
+        self.assertTrue(type(inst.id), 'str')
+        self.assertTrue(type(inst.name), 'str')
+        self.assertTrue(inst.created_at, inst.updated_at)

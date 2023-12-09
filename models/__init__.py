@@ -10,12 +10,12 @@ from models.amenity import Amenity
 from models.city import City
 
 classes = {"BaseModel": BaseModel,
-            "User": User, 
-            "Place": Place,
-            "State": State, 
-            "Review": Review, 
-            "Amenity": Amenity,
-            "City": City}
+           "User": User,
+           "Place": Place,
+           "State": State,
+           "Review": Review,
+           "Amenity": Amenity,
+           "City": City}
 
 storage = FileStorage()
 storage.reload()

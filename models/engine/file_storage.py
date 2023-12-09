@@ -18,7 +18,7 @@ class FileStorage:
     def all(self):
         """Returns a dictionary of models currently in storage"""
         return self.__objects
-    
+
     def new(self, obj):
         """Adds new object to storage dictionary"""
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
@@ -41,4 +41,3 @@ class FileStorage:
                 self.__objects[key] = eval(value["__class__"])(**value)
         except FileNotFoundError:
             pass
-

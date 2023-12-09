@@ -68,4 +68,3 @@ class testPlace(unittest.TestCase):
         inst.amenity_ids = ["123"]
         self.assertEqual(inst.amenity_ids, ["123"])
         self.assertTrue(isinstance(inst.amenity_ids, list))
-        
