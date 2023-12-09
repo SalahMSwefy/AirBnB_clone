@@ -81,6 +81,9 @@ class HBNBCommand(cmd.Cmd):
         models.storage.save()
 
     def do_all(self, line):
+        """
+        Prints all string representation of all instances
+        based or not on the class name."""
         args = shlex.split(line)
         allObjs = models.storage.all()
         res = []
