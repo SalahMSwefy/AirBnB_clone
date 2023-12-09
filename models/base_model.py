@@ -24,8 +24,7 @@ class BaseModel(cmd.Cmd):
 
     def __str__(self):
         """String representation of BaseModel class"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
-                                     self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Updates the public instance attribute
