@@ -93,9 +93,9 @@ class HBNBCommand(cmd.Cmd):
             return
         for obj in allObjs.values():
             if len(args) == 0:
-                res.append(str(obj))
+                res.append((obj.__str__()))
             elif args[0] == obj.__class__.__name__:
-                res.append(str(obj))
+                res.append((obj.__str__()))
         print(res)
 
     def do_update(self, line):
