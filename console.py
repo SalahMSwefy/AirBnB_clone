@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
                 res.append(str(obj))
         print(res)
         
-     def do_update(self, line):
+    def do_update(self, line):
         """
         Updates an instance based on the class name and id.
         Usage: update <class name> <id> <attribute name> \"<attribute value>\"
