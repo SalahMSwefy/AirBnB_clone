@@ -23,3 +23,6 @@ class testCity(unittest.TestCase):
         inst.state_id = "123"
         self.assertEqual(inst.state_id, "123")
         self.assertTrue(isinstance(inst.state_id, str))
+
+if __name__ == "__main__":
+    unittest.main()

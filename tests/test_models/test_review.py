@@ -28,3 +28,6 @@ class testReview(unittest.TestCase):
         inst.text = "test"
         self.assertEqual(inst.text, "test")
         self.assertTrue(isinstance(inst.text, str))
+
+if __name__ == "__main__":
+    unittest.main()

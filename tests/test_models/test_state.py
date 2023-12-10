@@ -18,3 +18,6 @@ class testState(unittest.TestCase):
         inst.name = "test"
         self.assertEqual(inst.name, "test")
         self.assertTrue(isinstance(inst.name, str))
+
+if __name__ == "__main__":
+    unittest.main()

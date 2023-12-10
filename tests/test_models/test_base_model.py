@@ -78,3 +78,6 @@ class test_BaseModel(unittest.TestCase):
         my_model_json = my_model.to_dict()
         for key in my_model_json.keys():
             self.assertTrue(hasattr(my_model, key))
+
+if __name__ == '__main__':
+    unittest.main()

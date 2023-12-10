@@ -34,3 +34,6 @@ class testAmenity(unittest.TestCase):
         self.assertTrue(type(inst.id), 'str')
         self.assertTrue(type(inst.name), 'str')
         self.assertTrue(inst.created_at, inst.updated_at)
+
+if __name__ == "__main__":
+    unittest.main()

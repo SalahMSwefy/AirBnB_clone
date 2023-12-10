@@ -158,3 +158,6 @@ class testFileStorage(unittest.TestCase):
                          {"BaseModel.123": "test", "BaseModel.456": "test2"})
         self.assertTrue(isinstance(inst.all(), dict))
         self.assertTrue(isinstance(inst._FileStorage__objects, dict))
+
+if __name__ == "__main__":
+    unittest.main()
