@@ -28,7 +28,7 @@ This is the first step towards building your first full web application: the Air
 
 ## Examples
 
-```python
+```
 $ ./console.py
 (hbnb) help
 
@@ -40,10 +40,10 @@ EOF  help  quit
 (hbnb) 
 (hbnb) quit
 $
-}
+
 ```
 
-```python
+```
 $ echo "help" | ./console.py
 (hbnb)
 
